@@ -10,8 +10,7 @@ bandsRouter.route('/')
     try {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json')
-        // res.json(await quotes.getBands());
-        res.send('Hello get bands')
+        res.json(await quotes.getBands());
     } catch (err) {
         console.log(`Error while getting quotes, ${err.message}`)
         new Error(err.message)
@@ -35,14 +34,13 @@ bandsRouter.route('/')
 bandsRouter.route('/:bandId')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.corsWithOptions, async (req, res, next) => {
-    // console.log(req.params.bandId)
+    console.log(req.params.bandId)
     try {
     
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json')
         // res.json( await quotes.getBandsQuery('band_id', req.params.bandId));
-        // res.json( await quotes.getArtists(req.params.bandId) )
-        res.send('Hello get bands')
+        res.json( await quotes.getArtists(req.params.bandId) )
     } catch (err) {
         console.log(`Error while getting quotes, ${err.message}`)
         new Error(err.message)
