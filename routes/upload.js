@@ -8,7 +8,7 @@ const quotes = require('../services/quotes');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/');
+        cb(null, 'public/images');
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -36,11 +36,11 @@ uploadRouter.route('/')
 })
 .post(cors.cors, upload.single('image'), async (req, res) => {
     try {
-        console.log(req.body.inputId)
-        console.log(req.file)
-        let path = req.file.destination
-        let imageName = req.file.originalname
-        let imagePath = path + imageName
+        // console.log(req.body.inputId)
+        // console.log(req.file)
+        // let path = req.file.destination
+        // let imageName = req.file.originalname
+        // let imagePath = path + imageName
         res.setHeader('Content-Type', 'application/json')
         // console.log(iml)
         res.json( await quotes.addPhoto(req.file.originalname, req.body.inputId))
