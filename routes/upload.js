@@ -37,7 +37,7 @@ uploadRouter.route('/')
 .post(cors.cors, upload.single('image'), async (req, res) => {
     try {
         // console.log(req.body.inputId)
-        // console.log(req.file)
+       
         // let path = req.file.destination
         // let imageName = req.file.originalname
         // let imagePath = path + imageName
