@@ -85,4 +85,13 @@ async function addMembersToBand(values, bandId) {
 
 }
 
-module.exports = {addMembersToBand, getBand, getArtists, getPhotos, getBands, addBand, getBandsQuery, deleteBand, fetchQueryBand, addPhoto };
+async function verifyAdmin(email, password) {
+    console.log(`SELECT * FROM Users WHERE email = '${email}' AND password = '${password};'`)
+    const data = await db.query(`SELECT * FROM Users WHERE email = '${email}' AND password = '${password}';`)
+    const meta = {page:1}
+    return {
+        data, meta 
+    }
+}
+
+module.exports = {verifyAdmin, addMembersToBand, getBand, getArtists, getPhotos, getBands, addBand, getBandsQuery, deleteBand, fetchQueryBand, addPhoto };
