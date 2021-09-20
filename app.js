@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 const bandsRouter = require('./routes/bands');
 const uploadRouter = require('./routes/upload');
 const usersRouter = require('./routes/users');
+const searchRouter = require('./routes/search');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bands', bandsRouter);
 app.use('/upload', uploadRouter)
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
