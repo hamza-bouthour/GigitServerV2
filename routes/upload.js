@@ -43,7 +43,7 @@ uploadRouter.route('/')
     }
     catch (err) {
         res.send(err)
-    }
+    } 
 })
 
 module.exports = uploadRouter;
