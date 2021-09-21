@@ -77,7 +77,7 @@ async function fetchQueryBand(query) {
 }
 async function addMembersToBand(values, bandId) {
     console.log(`INSERT INTO Artists (image, artistname, instrument, description, bandId) VALUES('', '${values.name}', '${values.instrument}','assa' , ${bandId})`)
-    const data = await db.query(`INSERT INTO Artists (image, artistname, instrument, description, bandId) VALUES('asdfsdf', '${values.name}', '${values.instrument}','assa' , ${bandId})`)
+    const data = await db.query(`INSERT INTO Artists (image, artistname, instrument, description, bandId) VALUES('', '${values.name}', '${values.instrument}','assa' , ${bandId})`)
     const meta = {page:1}
     return {
         data, meta 

@@ -35,28 +35,15 @@ uploadRouter.route('/')
     res.end('GET operation not supported on /imageUpload');
 })
 .post(cors.cors, upload.single('image'), async (req, res) => {
+    
     try {
-        // console.log(req.body.inputId)
-       
-        // let path = req.file.destination
-        // let imageName = req.file.originalname
-        // let imagePath = path + imageName
         res.setHeader('Content-Type', 'application/json')
-        // console.log(iml)
-        res.json( await quotes.addPhoto(req.file.originalname, req.body.inputId))
-        // res.send('file uploaded')
+        await quotes.addPhoto(req.file.originalname, req.body.inputId)
+        res.redirect('http://localhost:3000/bands')
     }
     catch (err) {
         res.send(err)
     }
 })
-// .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res) => {
-//     res.statusCode = 403;
-//     res.end('PUT operation not supported on /imageUpload');
-// })
-// .delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res) => {
-//     res.statusCode = 403;
-//     res.end('DELETE operation not supported on /imageUpload');
-// });
 
 module.exports = uploadRouter;
