@@ -39,7 +39,7 @@ uploadRouter.route('/')
     try {
         res.setHeader('Content-Type', 'application/json')
         await quotes.addPhoto(req.file.originalname, req.body.inputId)
-        res.redirect('http://localhost:3000/bands')
+        res.redirect('https://gigitv2.herokuapp.com/bands')
     }
     catch (err) {
         res.send(err)
